@@ -1,0 +1,103 @@
+build_py: &build_py
+  docker:
+    - image: circleci/python:$PY_VERSION
+  steps:
+    - checkout
+    - restore_cache:
+        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+    - run:
+        name: Install dependencies
+        command: |
+          python -m venv venv
+          . venv/bin/activate
+          make dev
+    - save_cache:
+        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+        paths:
+          - "venv"
+    - run:
+        name: Run tests
+        command: |
+          . venv/bin/activate
+          make lint
+          make test
+    - run:
+        name: Report converage
+        command: |
+          if [ "${PY_VERSION}" == "3.6" ]; then
+            . venv/bin/activate
+            coveralls
+          fi
+
+version: 2
+jobs:
+  build_py35:
+    environment:
+      - PY_VERSION: 3.5
+    <<: *build_py
+  build_py36:
+    environment:
+      - PY_VERSION: 3.6
+    <<: *build_py
+  deploy:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            make dev
+      - restore_cache:
+          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+          paths:
+            - "venv"
+      - run:
+          name: Checking tag is the same as version
+          command: |
+            . venv/bin/activate
+      - run:
+          name: Check git tag and version are the same
+          command: |
+            VERSION=$(python -c "import python_package;print(python_package.__version__)")
+            [ "$VERSION" = "$CIRCLE_TAG" ]
+      - run:
+          name: Init .pypirc
+          command: |
+            echo -e "[pypi]" >> ~/.pypirc
+            echo -e "username = $PYPI_USERNAME" >> ~/.pypirc
+            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+      - run:
+          name: Create packages
+          command: make package
+      - run:
+          name: Upload to pypi
+          command: |
+            . venv/bin/activate
+            twine upload dist/*
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - build_py35:
+          filters:
+            tags:
+              only: /.*/
+      - build_py36:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build_py35
+            - build_py36
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
