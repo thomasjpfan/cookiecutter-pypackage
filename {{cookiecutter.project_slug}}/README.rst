@@ -7,7 +7,8 @@
     :alt: CI Status
 
 .. image:: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/badge.svg
-:target: https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+    :target: https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+    :alt: Coveralls Status
 
 {{ cookiecutter.project_short_description }}. The documentation is hosted at `ReadTheDocs <https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/latest/>`_.
 
