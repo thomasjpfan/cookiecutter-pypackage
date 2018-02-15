@@ -9,7 +9,7 @@
 .. image:: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/badge.svg
 :target: https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
 
-{{ cookiecutter.project_short_description }}
+{{ cookiecutter.project_short_description }}. The documentation is hosted at `ReadTheDocs <https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/latest/>`_.
 
 
 Features
@@ -17,8 +17,10 @@ Features
 
 * This is feature one
 
+
 Installation
 ------------
+In this alpha phase, you can install {{ cookiecutter.project_slug }} from git:
 
 .. code-block:: bash
 
@@ -37,3 +39,8 @@ The development version can be installed by:
     make dev
 
 Then we can lint ``make lint`` and tests by running ``make test``.
+
+
+License
+-------
+This project is released under the terms of the `MIT license <http://opensource.org/licenses/MIT>`_.
