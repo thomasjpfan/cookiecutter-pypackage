@@ -4,11 +4,11 @@ Contents
 --------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-    quickstart
-    apidoc
-    history
+   quickstart
+   apidoc
+   history
 
 Index
 -----

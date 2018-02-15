@@ -3,17 +3,17 @@
 from .__version__ import __version__
 
 
-def add(a, b):
+def add(a: int, b: int) -> int:
     """Add two numbers
 
-    More stuff
+    Wow this is amazing
 
     Args:
-        a (int): first
-        b (int): second
+        a: first
+        b: second
 
     Returns:
-        int: Sum
+        Sum
 
     """
     return a + b
