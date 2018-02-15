@@ -8,7 +8,7 @@ Contents
 
    quickstart
    apidoc
-   history
+   changelog
 
 Index
 -----

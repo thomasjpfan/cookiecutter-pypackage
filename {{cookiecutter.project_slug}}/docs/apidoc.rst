@@ -1,10 +1,8 @@
 API Documentation
 =================
 
-{{cookiecutter.project_slug}}
-{% for _ in cookiecutter.project_slug %}-{% endfor %}
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: {{cookiecutter.project_slug}}
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   add
+   subtracter
