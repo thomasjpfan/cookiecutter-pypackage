@@ -27,7 +27,9 @@ Then:
 1. Create repo on github.
 1. Add repo to CircleCi.
 1. Add repo to Coveralls and add `COVERALLS_REPO_TOKEN` to CircleCI's environment variables.
-1. Register on PyPI and add `PYPI_USERNAME` and `PYPI_PASSWORD` to CircleCI.
+1. Register on PyPI-Test `python setup.py register -r project_name` and `python setup.py sdist upload -r project_name`.
+1. Register on PyPI-Live `python setup.py register -r pypi` and `python setup.py sdist upload -r pypi`.
+1. Add `PYPI_USERNAME` and `PYPI_PASSWORD` to CircleCI.
 1. Add the repo to [ReadTheDocs](https://readthedocs.io/) account and activate service hook.
 
 ## License
