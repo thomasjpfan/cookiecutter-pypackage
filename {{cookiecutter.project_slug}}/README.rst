@@ -20,12 +20,12 @@ Features
 
 Installation
 ------------
-In this alpha phase, you can install {{ cookiecutter.project_slug }} from git:
+
+You can install {{ cookiecutter.project_slug }} directly from pypi like this:
 
 .. code-block:: bash
 
-    pip install git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-
+    pip install {{ cookiecutter.project_slug }}
 
 Development
 -----------
