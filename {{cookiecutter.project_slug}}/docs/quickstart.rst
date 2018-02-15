@@ -4,7 +4,7 @@ Quickstart
 Installation
 ============
 
-You can install {{ cookiecutter.project_slug }} directly from pypi like this:
+You can install {{ cookiecutter.project_slug }} directly from pypi:
 
 .. code-block:: bash
 

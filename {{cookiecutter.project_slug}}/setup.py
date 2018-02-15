@@ -30,7 +30,7 @@ setup(
     include_package_data=True,
     python_requires='>=3.5',
     zip_safe=False,
-    license='MIT license',
+    license='MIT',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
