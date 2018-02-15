@@ -6,7 +6,8 @@ sys.path.insert(0, os.path.abspath('..'))
 
 import {{cookiecutter.project_slug}}
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinxcontrib.napoleon']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode',
+              'sphinxcontrib.napoleon', 'sphinx_autodoc_typehints']
 
 templates_path = ['_templates']
 
@@ -29,8 +30,12 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 # HTML output theme
-html_theme = 'alabaster'
-# html_static_path = ['_static']
+html_theme = 'sphinx_rtd_theme'
+html_static_path = ['_static']
+html_context = {
+    'css_files': ['_static/custom.css'],
+}
+
 htmlhelp_basename = '{{ cookiecutter.project_slug }}doc'
 
 # Latex

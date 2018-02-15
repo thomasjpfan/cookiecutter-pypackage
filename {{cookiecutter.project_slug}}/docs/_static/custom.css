@@ -1,0 +1,13 @@
+.rst-content dl:not(.docutils) dt {
+    display: block;
+}
+
+.rst-content .viewcode-link,
+.rst-content .viewcode-back {
+    float: right;
+    padding-left: 8px;
+}
+
+.headerlink {
+    float: right;
+}
