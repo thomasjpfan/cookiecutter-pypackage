@@ -1,8 +1,8 @@
 Quickstart
-**********
+==========
 
 Installation
-============
+------------
 
 You can install {{ cookiecutter.project_slug }} directly from pypi:
 

@@ -1,5 +1,5 @@
 {{ cookiecutter.project_name }}
-{% for _ in cookiecutter.project_name %}*{% endfor %}
+{% for _ in cookiecutter.project_name %}={% endfor %}
 
 
 .. image:: https://circleci.com/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.svg?style=shield
