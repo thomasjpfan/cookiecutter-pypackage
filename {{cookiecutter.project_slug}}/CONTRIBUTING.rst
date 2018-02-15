@@ -26,7 +26,7 @@ The development version can be installed by:
     cd {{ cookiecutter.project_slug }}
     make dev
 
-Then we can lint `make lint` and tests by running `make test`.
+Then we can lint ``make lint`` and tests by running ``make test``.
 
 Pull Request Guidelines
 -----------------------
