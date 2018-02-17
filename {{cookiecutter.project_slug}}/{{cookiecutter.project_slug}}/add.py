@@ -1,17 +1,17 @@
 """This module is about adding"""
 
 
-def add(a: int, b: int) -> int:
+def add(a, b):
     """Add two numbers
 
     Wow this is amazing
 
     Args:
-        a: first
-        b: second
+        a (int): first
+        b (int): second
 
     Returns:
-        Sum
+        int: Sum
 
     """
     return a + b

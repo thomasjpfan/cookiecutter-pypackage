@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath('..'))
 import {{cookiecutter.project_slug}}
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode',
-              'sphinx.ext.napoleon', 'sphinx_autodoc_typehints']
+              'sphinx.ext.napoleon']
 
 templates_path = ['_templates']
 

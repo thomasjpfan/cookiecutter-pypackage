@@ -5,17 +5,17 @@ class Subtracter:
     """This class subtracts there
     """
 
-    def subtract(self, a: int, b: int) -> int:
+    def subtract(self, a, b):
         """subtract two numbers
 
         Wow this is amazing
 
         Args:
-            a: first
-            b: second
+            a (int): first
+            b (int): second
 
         Returns:
-            difference
+            int: difference
 
         """
         return a - b
