@@ -1,10 +1,10 @@
-build_py: &build_py
+buildpy: &buildpy
   docker:
     - image: circleci/python:$PY_VERSION
   steps:
     - checkout
     - restore_cache:
-        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
     - run:
         name: Install dependencies
         command: |
@@ -12,7 +12,7 @@ build_py: &build_py
           . venv/bin/activate
           make dev
     - save_cache:
-        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+        key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
         paths:
           - "venv"
     - run:
@@ -31,11 +31,11 @@ build_py: &build_py
 
 version: 2
 jobs:
-  build_py35:
+  buildpy35:
     environment:
       - PY_VERSION: 3.5
     <<: *build_py
-  build_py36:
+  buildpy36:
     environment:
       - PY_VERSION: 3.6
     <<: *build_py
@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
       - run:
           name: Install dependencies
           command: |
@@ -53,7 +53,7 @@ jobs:
             . venv/bin/activate
             make dev
       - restore_cache:
-          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements_dev.txt" }}{% endraw %}
+          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
           paths:
             - "venv"
       - run:
@@ -82,20 +82,20 @@ jobs:
 
 workflows:
   version: 2
-  build_all:
+  buildall:
     jobs:
-      - build_py35:
+      - buildpy35:
           filters:
             tags:
               only: /.*/
-      - build_py36:
+      - buildpy36:
           filters:
             tags:
               only: /.*/
       - deploy:
           requires:
-            - build_py35
-            - build_py36
+            - buildpy35
+            - buildpy36
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
