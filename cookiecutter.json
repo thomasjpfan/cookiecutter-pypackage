@@ -3,6 +3,7 @@
     "github_username": "thomasjpfan",
     "project_name": "Python Package",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "github_repo": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
     "project_short_description": "Python package description",
     "email": "{{ cookiecutter.github_username }}@gmail.com",
     "version": "0.1.0a1"

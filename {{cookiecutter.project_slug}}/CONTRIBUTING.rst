@@ -9,7 +9,7 @@ helps, and credit will always be given.
 
 You can contribute in many ways:
 
-1. Report Bugs on https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+1. Report Bugs on https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}/issues.
 2. Fix Bugs on GitHub issues
 3. Implement Features
 4. Write Documentation
@@ -22,8 +22,8 @@ The development version can be installed by:
 
 .. code-block:: bash
 
-    git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-    cd {{ cookiecutter.project_slug }}
+    git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
+    cd {{ cookiecutter.github_repo }}
     make dev
 
 Then we can lint ``make lint`` and tests by running ``make test``.

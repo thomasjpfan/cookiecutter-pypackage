@@ -4,8 +4,8 @@ Quickstart
 Installation
 ------------
 
-You can install {{ cookiecutter.project_slug }} directly from pypi:
+You can install {{ cookiecutter.github_repo }} directly from pypi:
 
 .. code-block:: bash
 
-    pip install {{ cookiecutter.project_slug }}
+    pip install {{ cookiecutter.github_repo }}

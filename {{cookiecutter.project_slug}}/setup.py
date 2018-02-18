@@ -18,13 +18,13 @@ with open('README.rst', 'r', 'utf-8') as f:
     readme = f.read()
 
 setup(
-    name='{{cookiecutter.project_slug}}',
+    name='{{cookiecutter.github_repo}}',
     version=about['__version__'],
     description='{{ cookiecutter.project_short_description }}',
     long_description=readme,
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
-    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
+    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}',
     packages=find_packages(include=['{{ cookiecutter.project_slug }}']),
     install_requires=requirements,
     include_package_data=True,
