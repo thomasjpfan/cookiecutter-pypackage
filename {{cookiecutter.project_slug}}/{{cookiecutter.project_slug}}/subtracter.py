@@ -6,16 +6,19 @@ class Subtracter:
     """
 
     def subtract(self, a, b):
-        """subtract two numbers
+        """Subtracts
 
-        Wow this is amazing
+        Parameters
+        ----------
+        a : int
+            first
+        b : int
+            second
 
-        Args:
-            a (int): first
-            b (int): second
-
-        Returns:
-            int: difference
+        Returns
+        -------
+        int
+            difference
 
         """
         return a - b

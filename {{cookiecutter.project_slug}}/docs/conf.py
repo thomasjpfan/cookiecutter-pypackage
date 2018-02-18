@@ -7,7 +7,11 @@ sys.path.insert(0, os.path.abspath('..'))
 import {{cookiecutter.project_slug}}
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode',
-              'sphinx.ext.napoleon']
+              'sphinx.ext.napoleon', 'sphinx.ext.intersphinx']
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+}
 
 templates_path = ['_templates']
 

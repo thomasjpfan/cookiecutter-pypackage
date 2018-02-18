@@ -4,14 +4,17 @@
 def add(a, b):
     """Add two numbers
 
-    Wow this is amazing
+    Parameters
+    ----------
+    a : int
+        first
+    b : int
+        second
 
-    Args:
-        a (int): first
-        b (int): second
-
-    Returns:
-        int: Sum
+    Returns
+    -------
+    int
+        Sum
 
     """
     return a + b
