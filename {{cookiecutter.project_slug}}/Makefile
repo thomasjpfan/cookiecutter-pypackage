@@ -19,7 +19,7 @@ package:
 	python setup.py bdist_wheel
 
 clean:
-	rm -rf dist/*
+	rm -rf dist build */*.egg-info *.egg-info
 
 docs:
 	$(MAKE) -C docs clean
