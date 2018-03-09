@@ -3,4 +3,8 @@ flake8>=3.5.0
 pytest>=3.3.2
 twine>=1.9.1
 pytest-cov>=2.5.1
+{% if cookiecutter.coverage == 'coveralls' -%}
 coveralls>=1.2.0
+{% elif cookiecutter.coverage == 'codecov' -%}
+codecov>=2.0.15
+{% endif -%}

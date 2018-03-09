@@ -26,7 +26,11 @@ buildpy: &buildpy
         command: |
           if [ "${PY_VERSION}" == "3.6" ]; then
             . venv/bin/activate
+            {% if cookiecutter.coverage == 'coveralls' -%}
             coveralls
+            {% elif cookiecutter.coverage == 'codecov' -%}
+            codecov
+            {%- endif %}
           fi
 
 version: 2
