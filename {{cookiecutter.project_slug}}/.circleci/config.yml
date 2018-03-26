@@ -1,4 +1,4 @@
-buildpy: &buildpy
+test_py: &test_py
   docker:
     - image: circleci/python:$PY_VERSION
   steps:
@@ -28,21 +28,21 @@ buildpy: &buildpy
             . venv/bin/activate
             {% if cookiecutter.coverage == 'coveralls' -%}
             coveralls
-            {% elif cookiecutter.coverage == 'codecov' -%}
+            {%- elif cookiecutter.coverage == 'codecov' -%}
             codecov
             {%- endif %}
           fi
 
 version: 2
 jobs:
-  buildpy35:
+  test_py35:
     environment:
       - PY_VERSION: 3.5
-    <<: *build_py
-  buildpy36:
+    <<: *test_py
+  test_py36:
     environment:
       - PY_VERSION: 3.6
-    <<: *build_py
+    <<: *test_py
   deploy:
     docker:
       - image: circleci/python:3.6
@@ -88,18 +88,12 @@ workflows:
   version: 2
   buildall:
     jobs:
-      - buildpy35:
-          filters:
-            tags:
-              only: /.*/
-      - buildpy36:
-          filters:
-            tags:
-              only: /.*/
+      - test_py35:
+      - test_py36:
       - deploy:
           requires:
-            - buildpy35
-            - buildpy36
+            - test_py35
+            - test_py36
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
