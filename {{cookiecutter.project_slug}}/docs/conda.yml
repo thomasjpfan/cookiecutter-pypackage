@@ -2,5 +2,5 @@ name: {{ cookiecutter.project_slug }}_docs
 
 dependencies:
   - python=3.6
-  - sphinx>=1.6.6
-  - sphinx_rtd_theme>=0.2.4
+  - sphinx>=1.7.5
+  - sphinx_rtd_theme>=0.4.0
