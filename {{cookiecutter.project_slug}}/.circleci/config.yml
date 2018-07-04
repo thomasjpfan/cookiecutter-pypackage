@@ -61,7 +61,7 @@ jobs:
             echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
       - run:
           name: Create packages
-          command: make package
+          command: make release
       - run:
           name: Upload to pypi
           command: |
