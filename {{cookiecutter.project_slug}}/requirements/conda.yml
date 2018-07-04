@@ -1,4 +1,4 @@
-name: {{ cookiecutter.project_slug }}_docs
+name: {{ cookiecutter.project_slug }}_env
 
 dependencies:
   - python=3.6
