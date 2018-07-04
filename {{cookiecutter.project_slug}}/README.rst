@@ -29,17 +29,4 @@ You can install {{ cookiecutter.github_repo }} directly from pypi:
 Development
 -----------
 
-The development version can be installed by:
-
-.. code-block:: bash
-
-    git clone https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
-    cd {{ cookiecutter.github_repo }}
-    make dev
-
-Then we can lint ``make lint`` and tests by running ``make test``.
-
-
-License
--------
-This project is released under the terms of the `MIT license <http://opensource.org/licenses/MIT>`_.
+The development version can be installed by running ``make dev``. Then we can lint ``make lint`` and tests by running ``make test``.
