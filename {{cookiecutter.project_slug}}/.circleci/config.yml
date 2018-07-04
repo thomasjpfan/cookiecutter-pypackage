@@ -48,26 +48,10 @@ jobs:
       - image: circleci/python:3.6
     steps:
       - checkout
-      - restore_cache:
-          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
-      - run:
-          name: Install dependencies
-          command: |
-            python -m venv venv
-            . venv/bin/activate
-            make dev
-      - restore_cache:
-          key: v1-dependency-cache-{% raw %}{{ checksum "setup.py" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
-          paths:
-            - "venv"
-      - run:
-          name: Checking tag is the same as version
-          command: |
-            . venv/bin/activate
       - run:
           name: Check git tag and version are the same
           command: |
-            VERSION=$(python -c "import python_package;print(python_package.__version__)")
+            VERSION=$(cat VERSION)
             [ "$VERSION" = "$CIRCLE_TAG" ]
       - run:
           name: Init .pypirc

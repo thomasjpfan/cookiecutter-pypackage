@@ -9,17 +9,15 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 requirements = []
 
-about = {}
-with open(os.path.join(here, '{{ cookiecutter.project_slug }}',
-                       '__version__.py'), 'r', 'utf-8') as f:
-    exec(f.read(), about)
+with open('VERSION', 'r') as f:
+    version = f.read().rstrip()
 
 with open('README.rst', 'r', 'utf-8') as f:
     readme = f.read()
 
 setup(
     name='{{cookiecutter.github_repo}}',
-    version=about['__version__'],
+    version=version,
     description='{{ cookiecutter.project_short_description }}',
     long_description=readme,
     author='{{ cookiecutter.full_name }}',

@@ -4,10 +4,11 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-import {{cookiecutter.project_slug}}
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode',
-              'sphinx.ext.napoleon', 'sphinx.ext.intersphinx']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.napoleon',
+              'sphinx.ext.intersphinx']
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
@@ -22,8 +23,9 @@ project = u'{{ cookiecutter.project_name }}'
 copyright = u"{% now 'local', '%Y' %}, {{ cookiecutter.full_name }}"
 author = u"{{ cookiecutter.full_name }}"
 
-version = {{cookiecutter.project_slug}}.__version__
-release = {{cookiecutter.project_slug}}.__version__
+with open('../VERSION', 'r') as f:
+    release = f.read().strip()
+    version = release.rsplit('.', 1)[0]
 
 language = 'en'
 
