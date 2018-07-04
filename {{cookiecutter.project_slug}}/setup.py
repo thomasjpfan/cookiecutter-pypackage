@@ -7,7 +7,11 @@ from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-requirements = []
+with open('requirements/base.txt') as f:
+    install_requires = f.read().strip().split('\n')
+
+with open('requirements/dev.txt') as f:
+    dev_requires = f.read().strip().split('\n')
 
 with open('VERSION', 'r') as f:
     version = f.read().rstrip()
@@ -24,7 +28,7 @@ setup(
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}',
     packages=find_packages(include=['{{ cookiecutter.project_slug }}']),
-    install_requires=requirements,
+    install_requires=install_requires,
     include_package_data=True,
     python_requires='>=3.5',
     zip_safe=False,
@@ -40,5 +44,7 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-    ]
-)
+    ],
+    extras_require={
+        'dev': dev_requires,
+    })

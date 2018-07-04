@@ -29,4 +29,4 @@ You can install {{ cookiecutter.github_repo }} directly from pypi:
 Development
 -----------
 
-The development version can be installed by running ``make dev``. Then we can lint ``make lint`` and tests by running ``make test``.
+The development version can be installed by running ``make dev``. Then we can lint ``make lint`` and tests by running ``pytest``.

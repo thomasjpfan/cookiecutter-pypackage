@@ -1,8 +1,10 @@
 """This module is about adding"""
+import numpy as np
 
 
 def add(a, b):
-    """Add two numbers
+    """Add two numbers using :func:`numpy.add`.
+    Look at :class:`{{ cookiecutter.project_slug }}.Subtracter`.
 
     Parameters
     ----------
@@ -13,8 +15,8 @@ def add(a, b):
 
     Returns
     -------
-    int
+    numpy array
         Sum
 
     """
-    return a + b
+    return np.add(a, b)

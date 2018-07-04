@@ -1,13 +1,10 @@
-.PHONY: dev dev_conda test package clean lint docs
-
-test:
-	pytest --cov={{ cookiecutter.project_slug }}
+.PHONY: dev dev_conda package clean lint docs
 
 lint:
 	flake8 {{ cookiecutter.project_slug }} tests
 
 dev:
-	pip install -q -r requirements_dev.txt
+	pip install -e .[dev]
 
 dev_conda:
 	conda env create -f requirements/conda.yml

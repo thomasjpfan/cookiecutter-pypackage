@@ -12,6 +12,7 @@ extensions = ['sphinx.ext.autodoc',
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
+    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
 }
 
 templates_path = ['_templates']
