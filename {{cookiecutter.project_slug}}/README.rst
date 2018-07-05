@@ -7,9 +7,15 @@
     :target: https://circleci.com/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
     :alt: CI Status
 
+{% if cookiecutter.coverage == 'coveralls' -%}
 .. image:: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}/badge.svg
     :target: https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
     :alt: Coveralls Status
+{%- elif cookiecutter.coverage == 'codecov' -%}
+.. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
+    :alt: Codecov Status
+{%- endif %}
 
 Features
 --------
