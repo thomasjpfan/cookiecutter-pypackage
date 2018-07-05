@@ -20,7 +20,7 @@
 Features
 --------
 
-* This is feature one
+- This is feature one
 
 
 Installation
