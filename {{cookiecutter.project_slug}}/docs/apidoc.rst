@@ -2,7 +2,7 @@ API Documentation
 =================
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   add
-   subtracter
+    add
+    subtracter
