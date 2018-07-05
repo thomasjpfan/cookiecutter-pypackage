@@ -2,4 +2,4 @@ name: {{ cookiecutter.project_slug }}_dev
 
 dependencies:
   - python=3.6
-  - numpy=1.13.3
+  - numpy=1.13.*
