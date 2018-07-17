@@ -4,7 +4,10 @@ test_py: &test_py
   steps:
     - checkout
     - restore_cache:
-        key: v1-dependency-cache-{% raw %}{{ checksum "requirements/base.txt" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
+        key: >
+          v1-dependency-cache
+          -{% raw %}{{ checksum "requirements/base.txt" }}
+          -{{ checksum "requirements/dev.txt" }}{% endraw %}
     - run:
         name: Install dependencies
         command: |
@@ -12,7 +15,10 @@ test_py: &test_py
           . venv/bin/activate
           pip install -e .[dev]
     - save_cache:
-        key: v1-dependency-cache-{% raw %}{{ checksum "requirements/base.txt" }}-{{ checksum "requirements/dev.txt" }}{% endraw %}
+        key: >
+          v1-dependency-cache
+          -{% raw %}{{ checksum "requirements/base.txt" }}
+          -{{ checksum "requirements/dev.txt" }}{% endraw %}
         paths:
           - "venv"
     - run:
